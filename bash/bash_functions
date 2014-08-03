@@ -1,0 +1,41 @@
+#! /bin/bash
+
+function vactivate {
+	if [ -d "$VENV/$1/bin" ]; then
+		. $VENV/$1/bin/activate
+	elif [ -d "$VENV/$1/Scripts" ]; then
+		. $VENV/$1/Scripts/activate
+	else
+		echo "Could not find pip activation script."
+	fi
+}
+function _vactivate {
+	local cur prev opts
+	COMPREPLY=()
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	opts="`ls $VENV | xargs`"
+	if [[ "$COMP_CWORD" -lt "2" ]]; then
+		COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+		return 0
+	fi
+}
+complete -F _vactivate vactivate
+
+
+function up {
+	if [ -z "$1" ]; then
+		cd ..
+		return 0
+	fi
+	for (( i = 1; i <= $1; i++ )); do
+		cd ..
+	done
+}
+
+function picklines() {
+	file=$1
+	shift
+	for line in "$@"; do
+		sed $line'q;d' $file
+	done
+}

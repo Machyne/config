@@ -1,0 +1,16 @@
+#! /bin/bash
+
+# ls
+alias ll='ls -alF'
+alias la='ls -a'
+alias l='ls -CF'
+# git
+alias gbv='git branch -v'
+alias gba='git branch -a'
+alias gbr='git branch -r'
+alias gs='git status'
+alias gc='git commit'
+alias ga='git add -p'
+# python
+alias bpy='bpython-curtsies'
+alias nts='nosetests ./test_*.py'

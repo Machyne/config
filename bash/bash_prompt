@@ -1,0 +1,48 @@
+#! /bin/bash
+
+is_git_repo() {
+    git rev-parse --is-inside-work-tree &> /dev/null
+}
+
+parse_git_branch() {
+    local BR=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD 2> /dev/null)
+    if [ "$BR" == HEAD ]; then
+        local NM=$(git name-rev --name-only HEAD 2> /dev/null)
+        if [ "$NM" != undefined ]; then
+            echo -n "@$NM"
+        else
+            git rev-parse --short HEAD 2> /dev/null
+        fi
+    else
+        echo -n $BR
+    fi
+}
+
+parse_git_status() {
+    local ST=$(git status --short 2> /dev/null)
+    if [ -n "$ST" ]; then
+        echo -ne " \xe2\x96\xb2"
+    fi
+}
+
+print_git_promt() {
+    if is_git_repo; then
+        echo -n "("
+        parse_git_branch
+        parse_git_status
+        echo -n ") "
+    fi
+}
+
+make_ps1() {
+    local COLRED="\[\e[31;1m\]"
+    local COLYEL="\[\e[33;1m\]"
+    local COLBLUE="\[\e[36m\]"
+    local COLGRN="\[\e[32m\]"
+    local COLCLEAR="\[\e[0m\]"
+    local USR="$COLCLEAR$COLBLUE\u@\h$COLCLEAR"
+    local WRK="$COLYEL\w$COLCLEAR"
+    export -f is_git_repo parse_git_branch parse_git_status print_git_promt
+    export PS1="\n$COLGRN[ \# $USR $WRK $COLRED\$(print_git_promt)$COLCLEAR$COLGRN]\n$COLCLEAR\$ "
+}
+make_ps1

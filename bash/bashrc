@@ -1,0 +1,33 @@
+#! /bin/bash
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# create all of the aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# create all custom functions and their completions
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
+
+# if the user has a local startup script, run it
+if [ -f ~/.bash_local ]; then
+    . ~/.bash_local
+fi
+
+# export PS1 to custom prompt
+if [ -f ~/.bash_prompt ]; then
+    . ~/.bash_prompt
+fi
+
+# run all other startup scripts
+for script in ~/.bash_scripts/*.sh; do
+    . $script
+done
+
+export VENV=~/tools/venv
