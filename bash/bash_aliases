@@ -14,3 +14,5 @@ alias ga='git add -p'
 # python
 alias bpy='bpython-curtsies'
 alias nts='nosetests ./test_*.py'
+# other
+alias notrailspace="awk '{gsub(/ +$/,\"\")} {print \$0}'"

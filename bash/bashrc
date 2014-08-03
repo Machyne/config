@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ]; then
+if [ -d ~/bin ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
@@ -26,8 +26,11 @@ if [ -f ~/.bash_prompt ]; then
 fi
 
 # run all other startup scripts
-for script in ~/.bash_scripts/*.sh; do
-    . $script
-done
+if [ -d ~/.bash_scripts ]; then
+    scripts=$(echo ~/.bash_scripts/*.sh);
+    for script in $scripts; do
+        . $script
+    done
+fi
 
 export VENV=~/tools/venv
