@@ -16,7 +16,7 @@ mkdirAndEcho() {
 }
 
 removeOrWarn() {
-    if [[ -e "$1" && ! -L "$2" ]]; then
+    if [[ -e "$1" && ! -L "$1" ]]; then
         echo -e "\tWarning: $1 is not a symbolic link and will not be deleted."
     else
         echo -e "\tRemoving $1"

@@ -1,0 +1,24 @@
+[user]
+        name = Matt Cotter
+        email = mcotter222@gmail.com
+
+[alias]
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+        ci = commit
+        br = branch
+        co = checkout
+
+[push]
+        default = current
+
+[color]
+        ui = true
+
+[credential]
+        helper = cache --timeout=3600
+
+[help]
+        autocorrect = 1
+
+[rerere]
+        enabled = 1
