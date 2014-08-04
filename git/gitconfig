@@ -7,6 +7,7 @@
         ci = commit
         br = branch
         co = checkout
+        cl = clean
 
 [push]
         default = current
