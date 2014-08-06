@@ -1,6 +1,6 @@
 #! /bin/bash
 
-function vactivate {
+vactivate() {
 	if [ -d "$VENV/$1/bin" ]; then
 		. $VENV/$1/bin/activate
 	elif [ -d "$VENV/$1/Scripts" ]; then
@@ -9,7 +9,7 @@ function vactivate {
 		echo "Could not find pip activation script."
 	fi
 }
-function _vactivate {
+_vactivate() {
 	local cur prev opts
 	COMPREPLY=()
 	cur="${COMP_WORDS[COMP_CWORD]}"
@@ -22,7 +22,7 @@ function _vactivate {
 complete -F _vactivate vactivate
 
 
-function up {
+up() {
 	if [ -z "$1" ]; then
 		cd ..
 		return 0
@@ -32,10 +32,24 @@ function up {
 	done
 }
 
-function picklines() {
+picklines() {
 	file=$1
 	shift
 	for line in "$@"; do
 		sed $line'q;d' $file
 	done
+}
+
+rmtrailspace() {
+	if [ -z "$1" ]; then
+		echo "Error: no file name given"
+		echo "Usage: rmtrailspace <filename>"
+		return 0
+	fi
+	if [ -e "$1" ]; then
+		text=$(cat $1 | notrailspace)
+		echo "$text" > "$1"
+	else
+		echo "could not find file $1"
+	fi
 }
