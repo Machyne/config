@@ -16,3 +16,5 @@ alias bpy='bpython-curtsies'
 alias nts='nosetests ./test_*.py'
 # other
 alias notrailspace="awk '{gsub(/ +$/,\"\")} {print \$0}'"
+alias py="python"
+alias py3="python3"
