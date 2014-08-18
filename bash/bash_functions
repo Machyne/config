@@ -47,8 +47,7 @@ rmtrailspace() {
 		return 0
 	fi
 	if [ -e "$1" ]; then
-		text=$(cat $1 | notrailspace)
-		echo "$text" > "$1"
+		sed -i "" -e "s/[[:space:]]$//g" "$1"
 	else
 		echo "could not find file $1"
 	fi
