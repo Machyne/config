@@ -33,4 +33,5 @@ if [ -d ~/.bash_scripts ]; then
     done
 fi
 
-export VENV=~/tools/venv
+export TOOLS="~/tools"
+export VENV="$TOOLS/venv"
