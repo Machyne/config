@@ -6,7 +6,7 @@ linkOrWarn() {
                 "differences, merge differences if necessary, and then delete."
     else
         echo -e "\tLinking $2 to $PWD/$1"
-        ln -fhs $PWD/$1 $2
+        ln -fns $PWD/$1 $2
     fi
 }
 
