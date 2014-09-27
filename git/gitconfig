@@ -9,6 +9,7 @@
         co = checkout
         cl = clean
         rt = remote
+        pl = pull --rebase
 
 [push]
         default = current
