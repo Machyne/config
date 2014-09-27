@@ -8,6 +8,7 @@
         br = branch
         co = checkout
         cl = clean
+        rt = remote
 
 [push]
         default = current
