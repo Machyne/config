@@ -25,3 +25,5 @@
 
 [rerere]
         enabled = 1
+[core]
+	editor = vim
