@@ -32,11 +32,6 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
-# if the user has a local startup script, run it
-if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
-fi
-
 # export PS1 to custom prompt
 if [ -f ~/.bash_prompt ]; then
     . ~/.bash_prompt
@@ -52,3 +47,8 @@ fi
 
 export TOOLS=~/tools
 export VENV=$TOOLS/venv
+
+# if the user has a local startup script, run it
+if [ -f ~/.bash_local ]; then
+    . ~/.bash_local
+fi
