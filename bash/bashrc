@@ -20,7 +20,7 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 # "**" matches all files and zero or more directories and subdirectories
-shopt -s globstar
+shopt -s globstar 2&> /dev/null
 
 # create all of the aliases
 if [ -f ~/.bash_aliases ]; then
