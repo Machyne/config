@@ -20,6 +20,7 @@ alias py3="python3"
 alias notrailspace="awk '{gsub(/ +$/,\"\")} {print \$0}'"
 alias pdfocr="ruby ~/$TOOLS/pdfocr.rb"
 alias plz="history | tail -n 2 | colrm 1 7 | head -n 1 | sudo bash"
+alias mgd="mongod --dbpath data/db --logpath data/log.txt --fork"
 # enable color support
 if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
