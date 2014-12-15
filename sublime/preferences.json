@@ -1,14 +1,28 @@
 {
-    "font_size": 11,
+    "copy_with_empty_selection": false,
+    "drag_text": false,
+    "draw_white_space": "all",
+    "fade_fold_buttons": false,
+    "find_selected_text": false,
+    "fold_buttons": true,
+    "font_size": 15,
+    "gutter": true,
+    "highlight_modified_tabs": true,
     "ignored_packages":
     [
-        "Vintage",
-        "Markdown"
+        "Markdown",
+        "Vintage"
     ],
+    "line_padding_bottom": 1,
+    "line_padding_top": 1,
+    "margin": 0,
     "rulers":
     [
         79
     ],
+    "scroll_past_end": true,
+    "spell_check": true,
     "tab_size": 4,
-    "translate_tabs_to_spaces": true
+    "translate_tabs_to_spaces": true,
+    "tree_animation_enabled": false
 }
