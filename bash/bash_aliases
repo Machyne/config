@@ -4,6 +4,7 @@
 alias ll='ls -alF'
 alias la='ls -a'
 alias l='ls -CF'
+
 # git
 alias gbv='git branch -v'
 alias gba='git branch -a'
@@ -11,16 +12,21 @@ alias gbr='git branch -r'
 alias gs='git status'
 alias gc='git commit'
 alias ga='git add -p'
+
 # python
 alias bpy='bpython-curtsies'
+alias ipy='ipython'
 alias nts='nosetests ./test_*.py'
 alias py="python"
 alias py3="python3"
+
 # other
 alias notrailspace="awk '{gsub(/ +$/,\"\")} {print \$0}'"
 alias pdfocr="ruby ~/$TOOLS/pdfocr.rb"
 alias plz="history | tail -n 2 | colrm 1 7 | head -n 1 | sudo bash"
-alias mgd="mongod --dbpath data/db --logpath data/log.txt --fork"
+alias mgd="mongod --dbpath db/data --logpath db/log.txt --fork"
+alias sd="subl ."
+
 # enable color support
 if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
