@@ -1,54 +1,64 @@
 #! /bin/bash
 
 vactivate() {
-	if [ -d "$VENV/$1/bin" ]; then
-		. $VENV/$1/bin/activate
-	elif [ -d "$VENV/$1/Scripts" ]; then
-		. $VENV/$1/Scripts/activate
-	else
-		echo "Could not find pip activation script."
-	fi
+    if [ -d "$VENV/$1/bin" ]; then
+        . $VENV/$1/bin/activate
+    elif [ -d "$VENV/$1/Scripts" ]; then
+        . $VENV/$1/Scripts/activate
+    else
+        echo "Could not find pip activation script."
+    fi
 }
 _vactivate() {
-	local cur prev opts
-	COMPREPLY=()
-	cur="${COMP_WORDS[COMP_CWORD]}"
-	opts="`ls $VENV | xargs`"
-	if [[ "$COMP_CWORD" -lt "2" ]]; then
-		COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-		return 0
-	fi
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    opts="`ls $VENV | xargs`"
+    if [[ "$COMP_CWORD" -lt "2" ]]; then
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+        return 0
+    fi
 }
 complete -F _vactivate vactivate
 
+mgd() {
+    port=${1:-27017}
+    folder=${2:-"./db/data"}
+    [ ! -d $folder ] && mkdir -p $folder
+    if nc -z localhost $port > /dev/null; then
+        echo "ERROR: port $port already in use!"
+        return 0
+    fi
+    mongod --dbpath $folder --logpath db/log.txt --port $port --logappend --fork
+}
 
 up() {
-	if [ -z "$1" ]; then
-		cd ..
-		return 0
-	fi
-	for (( i = 1; i <= $1; i++ )); do
-		cd ..
-	done
+    if [ -z "$1" ]; then
+        cd ..
+        return 0
+    fi
+    for (( i = 1; i <= $1; i++ )); do
+        cd ..
+    done
 }
 
 picklines() {
-	file=$1
-	shift
-	for line in "$@"; do
-		sed $line'q;d' $file
-	done
+    file=$1
+    shift
+    for line in "$@"; do
+        sed $line'q;d' $file
+    done
 }
 
 rmtrailspace() {
-	if [ -z "$1" ]; then
-		echo "Error: no file name given"
-		echo "Usage: rmtrailspace <filename>"
-		return 0
-	fi
-	if [ -e "$1" ]; then
-		sed -i "" -e "s/[[:space:]]$//g" "$1"
-	else
-		echo "could not find file $1"
-	fi
+    if [ -z "$1" ]; then
+        echo "Error: no file name given"
+        echo "Usage: rmtrailspace <filename>"
+        return 0
+    fi
+    if [ -e "$1" ]; then
+        sed -i "" -e "s/[[:space:]]$//g" "$1"
+    else
+        echo "could not find file $1"
+    fi
 }
