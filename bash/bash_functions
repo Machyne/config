@@ -27,7 +27,7 @@ mgd() {
     [ ! -d $folder ] && mkdir -p $folder
     if nc -z localhost $port > /dev/null; then
         echo "ERROR: port $port already in use!"
-        return 0
+        return 1
     fi
     mongod --dbpath $folder --logpath db/log.txt --port $port --logappend --fork
 }
@@ -37,9 +37,13 @@ up() {
         cd ..
         return 0
     fi
+    CURDIR=`pwd`
     for (( i = 1; i <= $1; i++ )); do
         cd ..
     done
+    NEWDIR=`pwd`
+    cd $CURDIR
+    cd $NEWDIR
 }
 
 picklines() {
@@ -54,7 +58,7 @@ rmtrailspace() {
     if [ -z "$1" ]; then
         echo "Error: no file name given"
         echo "Usage: rmtrailspace <filename>"
-        return 0
+        return 1
     fi
     if [ -e "$1" ]; then
         sed -i "" -e "s/[[:space:]]$//g" "$1"
