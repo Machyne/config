@@ -10,6 +10,9 @@
         cl = clean
         rt = remote
         pl = pull --rebase
+        ri = rebase -i
+        rv = remote -v
+        mf = merge --ff-only
 
 [push]
         default = current
