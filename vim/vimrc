@@ -56,7 +56,8 @@ autocmd FileType go setlocal shiftwidth=8 tabstop=8
 autocmd FileType cpp setlocal expandtab shiftwidth=4 softtabstop=4
 
 " Enable line numbers
-set relativenumber
+"set relativenumber
+set number
 
 " Show “invisible” characters
 "set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
