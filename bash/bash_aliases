@@ -10,15 +10,15 @@ alias gbv='git branch -v'
 alias gba='git branch -a'
 alias gbr='git branch -r'
 alias gs='git status'
-alias gc='git commit'
 alias ga='git add -p'
+alias gft="git fetch $(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} | sed 's!/! !')"
 
 # python
 alias bpy='bpython-curtsies'
 alias ipy='ipython'
 alias nts='nosetests ./test_*.py'
-alias py="python"
-alias py3="python3"
+alias py='python'
+alias py3='python3'
 
 # other
 alias notrailspace="awk '{gsub(/ +$/,\"\")} {print \$0}'"

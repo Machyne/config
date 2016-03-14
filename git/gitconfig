@@ -12,7 +12,7 @@
         pl = pull --rebase
         ri = rebase -i
         rv = remote -v
-        mnof = merge --no-ff
+        rsft = reset --hard FETCH_HEAD
 
 [push]
         default = current
