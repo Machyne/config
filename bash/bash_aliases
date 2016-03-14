@@ -11,7 +11,7 @@ alias gba='git branch -a'
 alias gbr='git branch -r'
 alias gs='git status'
 alias ga='git add -p'
-alias gft="git fetch $(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} | sed 's!/! !')"
+alias gft='git fetch $(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} | sed "s!/! !")'
 
 # python
 alias bpy='bpython-curtsies'
