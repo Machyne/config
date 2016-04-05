@@ -11,6 +11,7 @@ alias gba='git branch -a'
 alias gbr='git branch -r'
 alias gs='git status'
 alias ga='git add -p'
+alias gsmall='git ci -am "REBASEME small fix" && git push'
 alias gft='git fetch $(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} | sed "s!/! !")'
 
 # python
