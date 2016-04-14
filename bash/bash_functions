@@ -32,6 +32,10 @@ mgd() {
     mongod --dbpath $folder --logpath db/log.txt --port $port --logappend --fork
 }
 
+awhich() {
+    alias | grep "alias $1="
+}
+
 up() {
     if [ -z "$1" ]; then
         cd ..

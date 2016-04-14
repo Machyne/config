@@ -23,7 +23,6 @@ alias py3='python3'
 
 # other
 alias notrailspace="awk '{gsub(/ +$/,\"\")} {print \$0}'"
-alias pdfocr="ruby ~/$TOOLS/pdfocr.rb"
 alias plz="history | tail -n 2 | colrm 1 7 | head -n 1 | sudo bash"
 alias sd="subl ."
 
