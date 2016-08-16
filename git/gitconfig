@@ -12,6 +12,7 @@
         rt = remote
         pl = pull --rebase
         ri = rebase -i
+        rb = rebase
         rv = remote -v
         rsft = reset --hard FETCH_HEAD
 
