@@ -8,6 +8,7 @@
         cpx = cherry-pick -x
         br = branch
         co = checkout
+        cb = checkout -b
         cl = clean
         rt = remote
         pl = pull --rebase
