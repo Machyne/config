@@ -166,7 +166,7 @@ autocmd BufEnter * silent! lcd %:p:h
 set path+=~/mongo
 set path+=~/mongo/src
 
-set colorcolumn=101
+set colorcolumn=80
 let g:ag_working_path_mode="r"
 nmap <F6> :TagbarToggle<CR>
 
