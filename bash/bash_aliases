@@ -20,6 +20,7 @@ alias gsmall='git ci -am "REBASEME small fix" && git push'
 alias gft='git fetch $(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} | sed "s!/! !")'
 alias glg='git lg `git rev-parse --abbrev-ref --symbolic-full-name @{u}`^..HEAD'
 alias glm='git lg `git merge-base HEAD master`^..HEAD'
+alias gbak='git cb bak`gbv | grep bak | cut -d"k" -f2 | cut -d" " -f1 | sort -nr | head -n1 | awk "{ print 1 + \\\$1 }"` && git co -'
 
 # python
 alias bpy='bpython-curtsies'

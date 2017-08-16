@@ -19,6 +19,7 @@
         rb = rebase
         rv = remote -v
         rsft = reset --hard FETCH_HEAD
+        det = "! git status && echo && git lg -5 && echo && git br -v && echo && git worktree list"
 
 [push]
         default = current
