@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# remove osx zsh warning
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # include .bashrc if it exists
 if [ -f "$HOME/.bashrc" ]; then
     . "$HOME/.bashrc"
