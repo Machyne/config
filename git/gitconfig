@@ -18,6 +18,7 @@
         ri = rebase -i
         rb = rebase
         rv = remote -v
+        fp = fetch -p
         rsft = reset --hard FETCH_HEAD
         det = "! git status && echo && git lg -5 && echo && git br -v && echo && git worktree list"
 
