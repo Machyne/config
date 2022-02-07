@@ -11,7 +11,8 @@
         br = branch
         co = checkout
         cb = checkout -b
-        cm = checkout master
+        cm = checkout main
+        cms = checkout master
         cl = clean
         rt = remote
         pl = pull --rebase
