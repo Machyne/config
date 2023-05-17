@@ -16,21 +16,16 @@ alias gbr='git branch -r'
 alias gs='git status'
 alias gl='git lg -5'
 alias ga='git add -p'
-alias gsmall='git ci -am "REBASEME small fix" && git push'
-alias gft='git fetch $(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} | sed "s!/! !")'
+alias gft='git fetch $(git rev-parse --symbolic-full-name --abbrev-ref @{u} | tr / " ")'
 alias glg='git lg `git rev-parse --abbrev-ref --symbolic-full-name @{u}`^..HEAD'
 alias glm='git lg `git merge-base HEAD main`^..HEAD'
 alias glms='git lg `git merge-base HEAD master`^..HEAD'
+alias gmm='git fetch origin main:main'
+alias gmms='git fetch origin master:master'
 alias gbak='git cb bak`gbv | grep bak | cut -d"k" -f2 | cut -d" " -f1 | sort -nr | head -n1 | awk "{ print 1 + \\\$1 }"` && git co -'
 
-# python
-alias bpy='bpython-curtsies'
-alias nts='nosetests ./test_*.py'
-alias py='python'
-alias py3='python3'
-
 # other
-alias g="grep"
+alias g="grep --color=auto"
 alias notrailspace="awk '{gsub(/ +$/,\"\")} {print \$0}'"
 alias plz="history | tail -n 2 | colrm 1 7 | head -n 1 | sudo bash"
 alias psa="ps aux | head -n1 && ps aux | grep"
