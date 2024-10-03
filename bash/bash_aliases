@@ -33,6 +33,7 @@ alias notrailspace="awk '{gsub(/ +$/,\"\")} {print \$0}'"
 alias plz="history | tail -n 2 | colrm 1 7 | head -n 1 | sudo bash"
 alias psa="ps aux | head -n1 && ps aux | grep"
 alias pathme='export PATH=$(pwd):$PATH'
+alias gd="open project.godot && code ."
 
 # enable color support
 ls --color=auto &> /dev/null && alias ls='ls --color=auto' || alias ls='ls -G'
