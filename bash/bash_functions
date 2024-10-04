@@ -70,3 +70,17 @@ rmtrailspace() {
         echo "could not find file $1"
     fi
 }
+
+termcol() {
+    if [[ "$(uname -s)" != "Darwin" ]]; then
+        return
+    fi
+    val=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
+    theme="Solarized Light"
+    if [[ $val == "Dark" ]]; then
+        theme="Solarized Dark"
+    fi
+    osascript -e 'tell application "Terminal"
+        set current settings of tabs of windows to settings set "'"$theme"'"
+        end tell'
+}
