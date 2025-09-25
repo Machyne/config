@@ -23,9 +23,10 @@ alias glms='git lg `git merge-base HEAD master`^..HEAD'
 alias gmm='git fetch origin main:main'
 alias gmms='git fetch origin master:master'
 alias gbak='git cb bak`gbv | grep bak | cut -d"k" -f2 | cut -d" " -f1 | sort -nr | head -n1 | awk "{ print 1 + \\\$1 }"` && git co -'
+alias ggone='git for-each-ref --format '"'"'%(refname:short) %(upstream:track)'"'"' | awk '"'"'$2 == "[gone]" {print $1}'"'"' | xargs -r git branch -D'
 
 # github
-alias ghpr='git push && gh pr create --base dev --fill --web'
+alias ghpr='git push -u && gh pr create --base main --fill --web'
 
 # other
 alias g="grep --color=auto"
