@@ -26,7 +26,7 @@ alias gbak='git cb bak`gbv | grep bak | cut -d"k" -f2 | cut -d" " -f1 | sort -nr
 alias ggone='git for-each-ref --format '"'"'%(refname:short) %(upstream:track)'"'"' | awk '"'"'$2 == "[gone]" {print $1}'"'"' | xargs -r git branch -D'
 
 # github
-alias ghpr='git push -u && gh pr create --base main --fill --web'
+alias ghpr='[[ "$(parse_git_branch)" == "main" || "$(parse_git_branch)" == "master" ]] && echo "ON MAIN BRANCH" || (git push -u && gh pr create --base main --fill --web)'
 
 # other
 alias g="grep --color=auto"
